@@ -1,5 +1,6 @@
 package com.kdnakt.spring.bean_sandbox;
 
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -17,4 +18,11 @@ public class MySpringApp {
     public MyBeanInstantiatedByConfig myBeanInstantiatedByConfig() {
         return new MyBeanInstantiatedByConfig();
     }
+
+    @Bean
+    public BeanPostProcessor object() {
+        myBeanInstantiatedByConfig();// throws BeanCreationException
+        return null;
+    }
+
 }
